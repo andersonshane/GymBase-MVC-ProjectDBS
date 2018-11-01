@@ -12,6 +12,9 @@ namespace GymBase_MVC_ProjectDBS
     {
         protected void Application_Start()
         {
+            //Check for latest Migration & Upgrades Database automatically
+            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.MigrateDatabaseToLatestVersion<Models.MyDbContext, Migrations.Configuration>());
+            //^
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
